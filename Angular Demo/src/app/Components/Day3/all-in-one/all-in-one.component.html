@@ -1,0 +1,55 @@
+<h1>Registeration</h1>
+<div>
+  <input type="text" [(ngModel)]="name" placeholder="Name">
+  <span *ngIf="name==''" style="color: red;">
+    Name Required
+  </span>
+  <!-- <input type="number" [(ngModel)]="age" placeholder="Age"> -->
+  <!-- <span *ngIf="age<18&&age!=0;then falseBlock;else trueBlock" style="color: red;"> -->
+  <span *ngIf="age<18" style="color: red;">
+    <input type="number" style="border:1px solid red" [(ngModel)]="age" placeholder="Age">
+  </span>
+  <span *ngIf="age>18" style="color: red;">
+    <input type="number" [(ngModel)]="age" placeholder="Age">
+  </span>
+
+<!--
+  </span>
+  <ng-template #falseBlock>
+    Not Valid
+  </ng-template>
+  <ng-template #trueBlock>
+    <span *ngIf="age==20;else big18">
+      -------Welcome 20-------
+    </span>
+    <ng-template #big18 style="color: green;">
+      <span *ngIf="age!=0">
+        Valid
+      </span>
+    </ng-template>
+  </ng-template>
+  <input type="button" value="Add" (click)="getStudent()"> -->
+  <!-- <div *ngIf="age>18">
+  </div> -->
+</div>
+
+
+<h1>Students</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--Directive For-->
+    <tr *ngFor="let s of Students; index as i">
+      <td>{{i+1}}</td>
+      <td>{{s.name}}</td>
+      <td>{{s.age}}</td>
+      <!-- <td *ngIf="s.age>18">{{s.age}}</td> -->
+    </tr>
+  </tbody>
+</table>

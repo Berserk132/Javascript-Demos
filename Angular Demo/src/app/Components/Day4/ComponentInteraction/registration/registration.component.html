@@ -1,0 +1,22 @@
+<h1 class="alert alert-primary rounded-pill text-center w-50 m-auto mb-3">Registration</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <div class="form">
+        <div class="form-group row">
+          <label class="col-2" for="na">Name</label>
+          <input #name id="na" class="form-control w-75" type="text">
+        </div>
+        <div class="form-group row">
+          <label class="col-2" for="ag">Age</label>
+          <input #age id="ag" class="form-control w-75" type="number">
+        </div>
+        <div class="form-group text-center">
+          <input type="button" class="w-50 m-2 rounded-pill" (click)="Add(name.value, +age.value)" value="Add" >
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

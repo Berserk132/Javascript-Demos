@@ -1,0 +1,33 @@
+div {
+
+    width: 100%;
+    background-color: rgb(38, 59, 59);
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div .child {
+
+    width: 10%;
+    background-color: rgb(28, 75, 75);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+a {
+
+    text-decoration: none;
+    color: white;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+a:active {
+
+    color: brown;
+
+}

@@ -1,0 +1,32 @@
+<h1 class="alert alert-primary rounded-pill text-center w-50 m-auto mb-3">
+    Registration
+</h1>
+<div class="container">
+    <div *ngIf="error==true" class="alert alert-danger" role="alert">
+        This form is not valid
+    </div>
+    <div *ngIf="error==false && submited == true" class="alert alert-success" role="alert">
+        Form submitted successfully
+    </div>
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="HomeValidator" class="form">
+                <div class="form-group row">
+                    <label class="col-2" for="na">Name</label>
+                    <input formControlName="name" #name id="na" class="form-control w-75" type="text" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-2" for="ag">Age</label>
+                    <input formControlName="age" #age id="ag" class="form-control w-75" type="number" />
+                </div>
+                <div class="form-group text-center">
+                    <input type="button" class="w-50 m-2 rounded-pill" (click)="Add(name.value, +age.value)"
+                        value="Add" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <div style="margin-top: 20px;">
+    <app-students [students]="students"></app-students>
+</div> -->

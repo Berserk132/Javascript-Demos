@@ -1,0 +1,25 @@
+<!-- <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/students">Students</a></li>
+  <li><a href="/students/5">Student Details</a></li>
+  <li><a href="/profile">Profile</a></li>
+  <li><a href="/kasn">Error</a></li>
+</ul> -->
+
+<div class="">
+  <div class="child"> 
+    <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Home</a>
+  </div>
+  <div class="child"> 
+    <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/students">Students</a>
+  </div>
+  <div class="child"> 
+    <a routerLinkActive="active" routerLink="/students/5">Student Details</a>
+  </div>
+  <div class="child"> 
+    <a routerLinkActive="active" routerLink="/profile">Profile</a>
+  </div>
+  <div class="child"> 
+    <a routerLinkActive="active" routerLink="/error">Error</a>
+  </div>
+</div>
