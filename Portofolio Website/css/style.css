@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,500,800&display=swap');
+
+
+a {
+
+    text-decoration: none !important;
+}
+
+.navbar {
+    background-color: #c80c25 !important;
+    padding: 15px;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.nav-logo {
+    display: inline-block;
+    margin-left: 10% !important;
+}
+
+.navbar-main {
+
+    margin-right: 10%;
+}
+
+.nav-item {
+
+    font-size: 22px;
+    padding-right: 2rem;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+
+/* START INTRO SECTION*/
+
+.intro-section {
+
+    width: 100%;
+    height: 600px;
+    position: relative;
+    z-index: -500;
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.intro-btn-made {
+
+    border-style: none;
+    border-radius: 50px;
+    padding: 17px 50px;
+    font-size: 16px;
+    color: rgb(250, 100, 0);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.intro-btn-made:hover {
+    background-color: rgb(250, 50, 0);
+    color: white;
+}
+
+/* END INTRO SECTION*/
+
+
+/* START PROJECTS SECTION*/
+
+.projects-section {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-bottom: 100px;
+}
+
+.projects-section h3 {
+
+    font-size: 40px;
+    font-weight:600; 
+    color:white;
+}
+
+.projects-section p {
+
+    font-size: 20px;
+    text-align: center;
+    font-weight:600; 
+    color:white;
+}
+
+.projects-section p:hover:before {
+
+    content: '<';
+    color: orange;
+}
+
+.projects-section p:hover:after {
+
+    content: '/>';
+    color: orange;
+
+}
+
+.projects-section .card-body{
+
+
+    background-color: #0F2027;
+}
+/* END PROJECTS SECTION*/
+
+/* START PERSONAL INFO SECTION*/
+.personal-info {
+
+    background-color: #303841;
+    color: white;
+}
+
+.personal-info i {
+
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.personal-info span {
+
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.personal-info p {
+
+    font-weight: 300;
+} 
+
+/* END PERSONAL INFO SECTION*/
+
+
+
+
+/* MEDIA QUERY */
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .intro-section h3 {
+        font-size: 70px !important;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .intro-section h3 {
+        font-size: 50px !important;
+    }
+}
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .personal-info h3 {
+        font-size: 70px !important;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .personal-info h3 {
+        font-size: 50px !important;
+    }
+}
