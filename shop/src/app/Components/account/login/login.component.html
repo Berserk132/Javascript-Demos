@@ -1,0 +1,30 @@
+<div style="height: 900px;" class="d-flex justify-content-center mt-5">
+  <div class="col-md-6 col-sm-10 col-lg-4">
+    <div class="text-center mb-4 d-flex justify-content-center gap-4 align-items-center m-0 p-0">
+      <a mat-list-item routerLink="/department" routerLinkActive="list-item-active">
+        <mat-icon style="font-size: 3rem; color: black">shopping_cart</mat-icon>
+      </a>
+      <h1 class="h3 mb-3 font-weight-normal">eShop.com</h1>
+    </div>
+
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin">
+
+      <div class="form-label-group">
+        <label style="padding: 0.5rem;" for="inputusername"></label>
+        <input style="height: 40px; flex-basis: 100%" formControlName="username" type="text" id="inputusername"
+          class="form-control" placeholder="Username" required="">
+        <span class="text-danger" *ngIf="loginForm.get('username').invalid
+                    && loginForm.get('username').touched
+                    && loginForm.get('username').errors['required']">
+          Username is required
+        </span>
+      </div>
+
+
+      <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Sign
+        in</button>
+    </form>
+    <p class="mt-5 mb-3 text-muted text-center">© 2017-2018</p>
+  </div>
+</div>
