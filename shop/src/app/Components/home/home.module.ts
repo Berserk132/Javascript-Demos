@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    AgGridModule
   ]
 })
 export class HomeModule { }

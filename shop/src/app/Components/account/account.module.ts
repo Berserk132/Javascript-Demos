@@ -20,7 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
 })
 export class AccountModule { }

@@ -2,9 +2,11 @@ import { Filter } from './../../../Models/Filter';
 import { IProduct } from '../../../Models/Product';
 import { HomeService } from './../home.service';
 import { AccountService } from 'src/app/Components/account/account.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterModalComponent } from '../../shared/filter-modal/filter-modal.component';
+import { ColDef, GridReadyEvent, CellClickedEvent } from 'ag-grid-community';
+import { AgGridAngular } from 'ag-grid-angular';
 
 
 @Component({
@@ -16,6 +18,70 @@ export class HomeComponent implements OnInit {
   products: IProduct[] = this.homeService.products;
   maxValueFilter: number = 0;
   minValueFilter: number = 0;
+
+
+  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
+
+
+  // Each Column Definition results in one Column.
+  public columnDefs: ColDef[] = [
+    { field: 'Id', },
+    {
+      field: 'Name',
+      filter: 'agTextColumnFilter',
+      filterParams: {
+        textMatcher: ({ filter, value, filterText }) => {
+          const filterTextLowerCase = filterText.toLowerCase();
+          const valueLowerCase = value.toString().toLowerCase();
+          console.log(filter)
+          console.log(value)
+          console.log(filterText)
+          switch (filter) {
+            case 'contains':
+              return valueLowerCase.indexOf(filterTextLowerCase) >= 0;
+            case 'notContains':
+              return valueLowerCase.indexOf(filterTextLowerCase) === -1;
+            case 'equals':
+              return valueLowerCase === filterTextLowerCase;
+            case 'notEqual':
+              return valueLowerCase != filterTextLowerCase;
+            case 'startsWith':
+              return valueLowerCase.indexOf(filterTextLowerCase) === 0;
+            case 'endsWith':
+              var index = valueLowerCase.lastIndexOf(filterTextLowerCase);
+              return index >= 0 && index === (valueLowerCase.length - filterTextLowerCase.length);
+            default:
+              // should never happen
+              console.warn('invalid filter type ' + filter);
+              return false;
+          }
+        }
+      }
+    },
+    { field: 'Description' },
+    { field: 'Price' },
+    { field: 'Image' },
+
+  ]
+
+  // public columnDefs: ColDef[] = [
+  //   { field: 'make' },
+  //   { field: 'model' },
+  //   { field: 'price' }
+  // ];
+
+  public rowData = [
+    { make: "Toyota", model: "Celica", price: 35000 },
+    { make: "Ford", model: "Mondeo", price: 32000 },
+    { make: "Porsche", model: "Boxter", price: 72000 }
+  ];
+
+  // DefaultColDef sets props common to all Columns
+  public defaultColDef: ColDef = {
+    sortable: true,
+    filter: true,
+  };
+
   constructor(private accountService: AccountService, private homeService: HomeService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -25,16 +91,29 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(): void {
-    let filterParams: Filter = {MinValue: this.maxValueFilter, MaxValue: this.minValueFilter}
+    let filterParams: Filter = { MinValue: this.maxValueFilter, MaxValue: this.minValueFilter }
     const dialogRef = this.dialog.open(FilterModalComponent, {
       width: '250px',
-      data: filterParams ,
+      data: filterParams,
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.products = this.homeService.FilterData(this.products, result)
     });
+  }
+
+  // Example load data from sever
+
+
+  // Example of consuming Grid Event
+  onCellClicked(e: CellClickedEvent): void {
+    console.log('cellClicked', e);
+  }
+
+  // Example using Grid's API
+  clearSelection(): void {
+    this.agGrid.api.deselectAll();
   }
 
 }
